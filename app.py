@@ -2,7 +2,7 @@
 
 def hangman(word):
     wrong = 0
-    stages = ["",
+    stages = ["",                       ###hangman is stored as a list.  additional index is displayed w/ incorrect guesses
         "----------         ",
         "|         ",
         "|    |    ",
@@ -11,9 +11,10 @@ def hangman(word):
         "|   / \   ",
         "|         ",
         ]
-    rletters = list(word)
+    rletters = list(word)               ### key word is stored as a list
     board = ["--"] * len(word)
     win = False
+
     print('Welcome to HangMan')
 
     while wrong < len(stages) - 1:
@@ -25,6 +26,7 @@ def hangman(word):
             rletters[cind] = '$'
         else:
             wrong +=1
+            print('Wrong')
         
         print(("".join(board)))
         e = wrong+1
@@ -38,4 +40,4 @@ def hangman(word):
         print("\n".join(stages[0:wrong]))
         print("You lose! It was {}.".format(word))   
 
-hangman("cat")
+hangman("baseball")
